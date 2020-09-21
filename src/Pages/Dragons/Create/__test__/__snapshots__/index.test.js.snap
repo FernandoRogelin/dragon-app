@@ -15,11 +15,11 @@ exports[`Create dragon component Snapshot test 1`] = `
     Criar novo dragão
   </h1>
   <form
-    class="styles__Form-adeg7n-0 ffnFVm"
+    class="styles__Form-sc-1ui06el-0 dAsHuj"
     id="formulario"
   >
     <div
-      class="styles__Content-adeg7n-1 jMNlvH"
+      class="styles__Content-sc-1ui06el-1 hwzyQm"
     >
       <input
         aria-labelledby="formulario nome"

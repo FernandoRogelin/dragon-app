@@ -59,7 +59,7 @@ export default function Dragon() {
                       onClick={() =>
                         history.push({
                           pathname: Routes.edit,
-                          state: { dragon: dragon },
+                          state: { dragon },
                         })
                       }
                     >
@@ -69,7 +69,7 @@ export default function Dragon() {
                       onClick={() =>
                         history.push({
                           pathname: Routes.detail,
-                          state: { id: dragon.id },
+                          state: { dragon },
                         })
                       }
                     >

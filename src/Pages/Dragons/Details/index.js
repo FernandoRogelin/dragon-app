@@ -1,32 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 import Routes from "../../../Routes";
+import { Wrapper } from "../../../Components";
 import { useHistory, useLocation } from "react-router-dom";
-import { Wrapper, Loading } from "../../../Components";
-import { getDetailsDragon } from "../../../Services/Dragons";
 
 import { Content, Title, Text } from "./styles";
 
 export default function Details() {
-  const [loading, setLoading] = useState(true);
-  const [dragon, setDragon] = useState([]);
+  const [dragonEdit, setDragonEdit] = useState([]);
 
   let history = useHistory();
   let {
-    state: { id },
+    state: { dragon },
   } = useLocation();
 
   const fetchDragon = useCallback(async () => {
-    try {
-      const { data } = await getDetailsDragon(id);
-
-      setDragon(data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }, [id]);
+    setDragonEdit(dragon);
+  }, [dragon]);
 
   useEffect(() => {
     fetchDragon();
@@ -38,16 +28,15 @@ export default function Details() {
       title="Detalhes do dragão"
       onClick={() => history.push(Routes.dragons)}
     >
-      <Loading isLoading={loading} />
       <Content>
-        {dragon ? (
+        {dragonEdit ? (
           <>
             <Title>Nome:</Title>
-            <Text>{dragon.name}</Text>
+            <Text>{dragonEdit.name}</Text>
             <Title>Tipo do dragão:</Title>
-            <Text>{dragon.type}</Text>
+            <Text>{dragonEdit.type}</Text>
             <Title>Data de Criação:</Title>
-            <Text>{dragon.createdAt}</Text>
+            <Text>{dragonEdit.createdAt}</Text>
           </>
         ) : null}
       </Content>

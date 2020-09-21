@@ -13,7 +13,5 @@ export const createDragon = ({ name, type, createdAt }) =>
     createdAt,
   });
 
-export const getDetailsDragon = (id) => client.api.get(`${urlBase}/${id}`);
-
 export const editDragon = (id, { name, type, createdAt }) =>
   client.api.put(`${urlBase}/${id}`, { name, type, createdAt });
