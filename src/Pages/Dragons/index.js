@@ -7,7 +7,7 @@ import { getDragons, deleteDragon } from "../../Services/Dragons";
 
 import { Tr, Td, Table } from "./styles";
 
-export default function Timeline() {
+export default function Dragon() {
   const [dragons, setDragons] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -75,7 +75,10 @@ export default function Timeline() {
                     >
                       Detalhes
                     </Button>
-                    <Button onClick={() => DeleteDragon(dragon.id)}>
+                    <Button
+                      data-testid="deleteDragon"
+                      onClick={() => DeleteDragon(dragon.id)}
+                    >
                       Deletar
                     </Button>
                   </Td>
