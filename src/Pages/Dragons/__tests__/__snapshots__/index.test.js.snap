@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dragon list component Snapshot test 1`] = `
+<div
+  class="styles__WrapperComponent-mms3ln-0 gZmSTy"
+>
+  <h1
+    class="styles__Title-mms3ln-1 wrRRR"
+  >
+    Timeline de Dragões
+  </h1>
+  <button
+    class="Button__button-a83c5q-0 kzEeEq"
+  >
+    Adicionar
+  </button>
+  <div
+    class="styles__Content-sc-6cu4uz-0 knxsRm styles__Table-sc-11yc90o-0 kwrvqQ"
+  >
+    <table
+      class="styles__TableComponent-sc-6cu4uz-1 djUGph"
+    >
+      <thead
+        class="styles__Thead-sc-6cu4uz-2 RsIOg"
+      >
+        <tr
+          class="styles__Tr-sc-6cu4uz-3 kXRpur"
+        >
+          <th
+            class="styles__Th-sc-6cu4uz-4 fsOwmb"
+          >
+            Dragão
+          </th>
+          <th
+            class="styles__Th-sc-6cu4uz-4 fsOwmb"
+          >
+            Ações
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="styles__Tr-sc-11yc90o-1 boAmly"
+          data-testid="items"
+        >
+          <td
+            class="styles__Td-sc-11yc90o-2 iBZGcK"
+            data-testid="nameDragon"
+          >
+            Drake
+          </td>
+          <td
+            class="styles__Td-sc-11yc90o-2 iBZGcK"
+          >
+            <button
+              class="Button__button-a83c5q-0 kzEeEq"
+            >
+              Editar
+            </button>
+            <button
+              class="Button__button-a83c5q-0 kzEeEq"
+            >
+              Detalhes
+            </button>
+            <button
+              class="Button__button-a83c5q-0 kzEeEq"
+            >
+              Deletar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

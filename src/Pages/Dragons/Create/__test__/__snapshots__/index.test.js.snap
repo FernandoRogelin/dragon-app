@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create dragon component Snapshot test 1`] = `
+<div
+  class="styles__WrapperComponent-mms3ln-0 gZmSTy"
+>
+  <h1
+    class="styles__Title-mms3ln-1 wrRRR"
+  >
+    <button
+      class="Button__button-a83c5q-0 kzEeEq"
+    >
+      Voltar
+    </button>
+    Criar novo dragão
+  </h1>
+  <form
+    class="styles__Form-adeg7n-0 bKjqWy"
+    id="formulario"
+  >
+    <div
+      class="styles__Content-adeg7n-1 jMNlvH"
+    >
+      <input
+        aria-labelledby="formulario nome"
+        class="styles__Input-sc-1tlf70t-0 iWnGNM"
+        data-testid="input-name"
+        name="name"
+        placeholder="Nome"
+        value=""
+      />
+      <input
+        aria-labelledby="formulario tipo"
+        class="styles__Input-sc-1tlf70t-0 iWnGNM"
+        data-testid="input-type"
+        name="type"
+        placeholder="Tipo"
+        value=""
+      />
+      <input
+        aria-labelledby="formulario data"
+        class="styles__Input-sc-1tlf70t-0 iWnGNM"
+        data-testid="input-createdAt"
+        name="createdAt"
+        placeholder="Data de criação"
+        value=""
+      />
+    </div>
+    <button
+      aria-label="logar"
+      class="Button__button-a83c5q-0 kzEeEq"
+      data-testid="button-create"
+      type="submit"
+    >
+      Adicionar
+    </button>
+  </form>
+</div>
+`;
