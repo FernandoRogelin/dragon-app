@@ -11,7 +11,7 @@ export default function ValidateForm({ onSubmit, value }) {
   });
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)} id="formulario">
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Content>
         <InputForm
           name="name"
@@ -19,7 +19,7 @@ export default function ValidateForm({ onSubmit, value }) {
           error={errors.name}
           testId="input-name"
           value={value && value.name}
-          ariaLabelledby="formulario nome"
+          ariaLabel="formulario nome"
           refInput={register({
             required: "Campo obrigatório.",
           })}
@@ -30,7 +30,7 @@ export default function ValidateForm({ onSubmit, value }) {
           error={errors.type}
           testId="input-type"
           value={value && value.type}
-          ariaLabelledby="formulario tipo"
+          ariaLabel="formulario tipo"
           refInput={register({
             required: "Campo obrigatório.",
           })}
@@ -41,7 +41,7 @@ export default function ValidateForm({ onSubmit, value }) {
           error={errors.createdAt}
           testId="input-createdAt"
           placeholder="Data de criação"
-          ariaLabelledby="formulario data"
+          ariaLabel="formulario data"
           value={value && value.createdAt}
           refInput={register({
             required: "Campo obrigatório.",

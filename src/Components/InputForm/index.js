@@ -11,8 +11,8 @@ export default function InputForm({
   testId,
   refInput,
   onChange,
+  ariaLabel,
   placeholder,
-  ariaLabelledby,
   ...props
 }) {
   return (
@@ -26,8 +26,8 @@ export default function InputForm({
       onChange={onChange}
       defaultValue={value}
       data-testid={testId}
+      aria-label={ariaLabel}
       placeholder={placeholder}
-      aria-labelledby={ariaLabelledby}
       {...props}
     />
   );

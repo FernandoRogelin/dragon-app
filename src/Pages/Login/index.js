@@ -26,7 +26,7 @@ export default function Login() {
     <Wrapper>
       <Content>
         <Title>Acesse a sua conta</Title>
-        <form onSubmit={handleSubmit(onSubmit)} id="formulario">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Body>
             <InputForm
               type="email"
@@ -34,7 +34,7 @@ export default function Login() {
               testId="input-email"
               error={errors.email}
               placeholder="E-mail"
-              ariaLabelledby="formulario email"
+              ariaLabel="formulario email"
               refInput={register({
                 required: "Campo obrigatório.",
                 pattern: {
@@ -53,7 +53,7 @@ export default function Login() {
               name="password"
               placeholder="Senha"
               testId="input-password"
-              ariaLabelledby="formulario senha"
+              ariaLabel="formulario senha"
               error={errors.password}
               refInput={register({
                 required: "Campo obrigatório.",
