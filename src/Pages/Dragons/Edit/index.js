@@ -22,8 +22,6 @@ export default function Edit() {
       history.push(Routes.dragons);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   }
 

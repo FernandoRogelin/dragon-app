@@ -4,7 +4,7 @@ const urlBase = "dragon/";
 
 export const getDragons = () => client.api.get(`${urlBase}`);
 
-export const deleteDragon = (id) => client.api.delete(`${urlBase}/${id}`);
+export const deleteDragonId = (id) => client.api.delete(`${urlBase}/${id}`);
 
 export const createDragon = ({ name, type, createdAt }) =>
   client.api.post(`${urlBase}`, {

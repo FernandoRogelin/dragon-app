@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components/macro";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 import Routes from "./Routes";
 import Theme from "./Utils/theme";
@@ -8,6 +8,7 @@ import GlobalStyle from "./globalStyle";
 
 import Login from "./Pages/Login";
 import Dragons from "./Pages/Dragons";
+import NotFound from "./Pages/NotFound";
 import Edit from "./Pages/Dragons/Edit";
 import Create from "./Pages/Dragons/Create";
 import Details from "./Pages/Dragons/Details";
@@ -30,14 +31,17 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={Theme}>
         <GlobalStyle />
-        <Route exact path="/">
-          <Redirect to={{ pathname: Routes.login }} />
-        </Route>
-        <Route path={Routes.login} component={Login} />
-        <PrivateRoute component={Dragons} path={Routes.dragons} />
-        <PrivateRoute component={Create} path={Routes.create} />
-        <PrivateRoute component={Details} path={Routes.detail} />
-        <PrivateRoute component={Edit} path={Routes.edit} />
+        <Switch>
+          <Route exact path="/">
+            <Redirect to={{ pathname: Routes.login }} />
+          </Route>
+          <Route path={Routes.login} component={Login} />
+          <PrivateRoute component={Dragons} path={Routes.dragons} />
+          <PrivateRoute component={Create} path={Routes.create} />
+          <PrivateRoute component={Details} path={Routes.detail} />
+          <PrivateRoute component={Edit} path={Routes.edit} />
+          <Route component={NotFound} />
+        </Switch>
       </ThemeProvider>
     </BrowserRouter>
   );

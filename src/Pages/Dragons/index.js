@@ -1,15 +1,16 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useCallback, useReducer } from "react";
 
 import Routes from "../../Routes";
 import { useHistory } from "react-router-dom";
+import reducerDragon from "../../Reducers/reducer";
 import { Loading, Button, Wrapper } from "../../Components";
-import { getDragons, deleteDragon } from "../../Services/Dragons";
+import { getDragons, deleteDragonId } from "../../Services/Dragons";
 
 import { Tr, Td, Table } from "./styles";
 
 export default function Dragon() {
-  const [dragons, setDragons] = useState("");
-  const [loading, setLoading] = useState(true);
+  const initialState = { dragon: [], loading: true };
+  const [state, dispatch] = useReducer(reducerDragon, initialState);
 
   const history = useHistory();
   const thead = ["Dragão", "Ações"];
@@ -18,23 +19,20 @@ export default function Dragon() {
     try {
       const { data } = await getDragons();
 
-      setDragons(data);
+      dispatch({ type: "SET_DRAGON_LIST", payload: data, loading: false });
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   }, []);
 
-  async function DeleteDragon(id) {
-    setLoading(true);
+  async function deleteDragon(id) {
+    dispatch({ type: "SET_LOADING", loading: true });
 
     try {
-      await deleteDragon(id);
+      await deleteDragonId(id);
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false);
       fetchDragons();
     }
   }
@@ -45,11 +43,11 @@ export default function Dragon() {
 
   return (
     <Wrapper title="Timeline de Dragões">
-      <Loading isLoading={loading} />
+      <Loading isLoading={state.loading} />
       <Button onClick={() => history.push(Routes.create)}>Adicionar</Button>
       <Table thead={thead}>
-        {dragons
-          ? dragons
+        {state.dragons
+          ? state.dragons
               .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
               .map((dragon) => (
                 <Tr key={dragon.id} data-testid="items">
@@ -77,7 +75,7 @@ export default function Dragon() {
                     </Button>
                     <Button
                       data-testid="deleteDragon"
-                      onClick={() => DeleteDragon(dragon.id)}
+                      onClick={() => deleteDragon(dragon.id)}
                     >
                       Deletar
                     </Button>

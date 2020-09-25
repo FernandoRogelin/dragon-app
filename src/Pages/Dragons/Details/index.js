@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 
 import Routes from "../../../Routes";
 import { Wrapper } from "../../../Components";
@@ -7,20 +7,10 @@ import { useHistory, useLocation } from "react-router-dom";
 import { Content, Title, Text } from "./styles";
 
 export default function Details() {
-  const [dragonEdit, setDragonEdit] = useState([]);
-
   let history = useHistory();
   let {
     state: { dragon },
   } = useLocation();
-
-  const fetchDragon = useCallback(async () => {
-    setDragonEdit(dragon);
-  }, [dragon]);
-
-  useEffect(() => {
-    fetchDragon();
-  }, [fetchDragon]);
 
   return (
     <Wrapper
@@ -29,14 +19,14 @@ export default function Details() {
       onClick={() => history.push(Routes.dragons)}
     >
       <Content>
-        {dragonEdit ? (
+        {dragon ? (
           <>
             <Title>Nome:</Title>
-            <Text>{dragonEdit.name}</Text>
+            <Text>{dragon.name}</Text>
             <Title>Tipo do dragão:</Title>
-            <Text>{dragonEdit.type}</Text>
+            <Text>{dragon.type}</Text>
             <Title>Data de Criação:</Title>
-            <Text>{dragonEdit.createdAt}</Text>
+            <Text>{dragon.createdAt}</Text>
           </>
         ) : null}
       </Content>
